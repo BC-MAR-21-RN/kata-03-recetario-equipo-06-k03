@@ -5,7 +5,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 const Search = () => {
   return (
-    <SafeAreaView style={styles.input}>
+    <View style={styles.input}>
       <View style={styles.glass}>
         <FontAwesome5 name={'search'} style={styles.search} />
         <TextInput
@@ -17,7 +17,7 @@ const Search = () => {
       <View>
         <FontAwesome5 name={'microphone'} style={styles.microphone} />
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 

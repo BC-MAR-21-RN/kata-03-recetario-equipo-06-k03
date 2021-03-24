@@ -1,11 +1,15 @@
 import { StyleSheet } from 'react-native'
+import {
+StatusBar
+} from 'react-native';
 
 const appStyles = StyleSheet.create({
   container:{
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#282828',
-    paddingHorizontal: "2.5%"
+    paddingHorizontal: "2.5%",
+    // marginTop: StatusBar.currentHeight
   },
   text:{
     color: "#d31c71",

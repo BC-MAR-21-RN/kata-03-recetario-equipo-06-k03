@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  ScrollView,
+  Button,
   Text,
   View,
   StyleSheet
@@ -12,14 +12,17 @@ import HorizontList from './HorizontList';
 import Item from './Item';
 
 
-const Home = () => {
+const Home = ({navigation}) => {
     return (
       <View style={appStyles.container}>
         <Search style={appStyles.search}/>
         <Text style={appStyles.text}>TRENDING</Text>
         <HorizontList/>
         <Text style={appStyles.text}>RECENT</Text>
-        {/* <Item/> */}
+            <Button
+              title="Go to Profile"
+              onPress={() => navigation.navigate('Menu')}
+           />
       </View>
     );
   };

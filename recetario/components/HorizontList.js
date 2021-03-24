@@ -24,7 +24,7 @@ const HorizontList = () => {
         horizontal={true}
         data={data.recipes}
         renderItem={ renderItem }
-        keyExtractor={ (item) => item.id}
+        keyExtractor={ (item) => item.id.toString()}
       />
     </View>
   )
