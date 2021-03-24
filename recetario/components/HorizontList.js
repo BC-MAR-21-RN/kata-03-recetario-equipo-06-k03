@@ -6,6 +6,7 @@ import {
   StyleSheet,
   FlatList
 } from 'react-native'
+import { horizontalStyles } from './styles'
 
 import data from '../data/recipe.json'
 import Item from '../components/Item'
@@ -17,10 +18,9 @@ const HorizontList = () => {
   );
 
   return (
-    <View horizontal={true} style={styles.horizontal}>
-       <Text style={styles.text}>TRENDING</Text>
+    <View horizontal={true} style={horizontalStyles.horizontal}>
        <FlatList
-        style={styles.scroll}
+        style={horizontalStyles.scroll}
         horizontal={true}
         data={data.recipes}
         renderItem={ renderItem }
@@ -29,21 +29,5 @@ const HorizontList = () => {
     </View>
   )
 }
-
-
-const styles = StyleSheet.create({
-    horizontal: {
-        height: 250,
-        width: "100%",
-        flexDirection: "row"
-    },
-    text: {
-    color: '#d31c71',
-    fontSize: 24
-    },
-    // scroll:{
-    //     flexDirection: 'row',
-    // }
-})
 
 export default HorizontList

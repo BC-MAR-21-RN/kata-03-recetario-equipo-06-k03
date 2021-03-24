@@ -7,29 +7,16 @@ import {
   Image,
   requireNativeComponent
 } from 'react-native'
+import { itemStyles } from './styles'
 
 const Item = ({item}) => (
-    <View style={styles.item}>
+    <View style={itemStyles.item}>
       <Image
-        style={styles.img}
+        style={itemStyles.img}
         source={{uri: item.photo}}
       /> 
-      <Text style={styles.text}>{item.name}</Text>
+      <Text style={itemStyles.text}>{item.name}</Text>
     </View>
 )
-
-const styles = StyleSheet.create({
-    item: {
-        height:225,
-        width: 250
-    },
-    img:{
-        height: 150,
-        width: 150
-    },
-    text: {
-        color: "white"
-    }
-})
 
 export default Item
