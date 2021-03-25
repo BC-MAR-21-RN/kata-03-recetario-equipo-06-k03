@@ -3,7 +3,7 @@ import { Text, View, Image } from 'react-native'
 import { itemStyles } from './styles'
 
 const Item = ({ item }) => (
-  <View style={itemStyles.item}>
+  <View style={itemStyles.item} >
     <Image
       style={itemStyles.img}
       source={{ uri: item.photo }}
