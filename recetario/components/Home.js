@@ -5,21 +5,24 @@ import {
   View
 } from 'react-native'
 import { appStyles } from './styles'
+import {StatusBar} from 'react-native'
 
 import Search from './Search'
 import HorizontList from './HorizontList'
 
-const Home = ({ navigation }) => {
+const Home = () => {
   return (
     <View style={appStyles.container}>
+      <StatusBar
+      backgroundColor = '#282828'
+      hidden = {false}
+      translucent = {false}
+    />
       <Search style={appStyles.search}/>
       <Text style={appStyles.text}>TRENDING</Text>
-      <HorizontList/>
+      <HorizontList />
       <Text style={appStyles.text}>RECENT</Text>
-        <Button
-          title="Go to Profile"
-          onPress={() => navigation.navigate('Menu')}
-        />
+
     </View>
   )
 }

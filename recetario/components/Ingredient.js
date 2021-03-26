@@ -1,13 +1,14 @@
 import React from 'react'
 import { Text, View, StyleSheet } from 'react-native'
-//import { itemStyles } from './styles'
 
-const Ingredient = ({ ingredient }) => (
+const Ingredient = ({ item }) => {
+  return(
   <View style={styles.contentIngredient}>
-    <Text style={styles.ingredient}>name</Text>
-    <Text style={styles.ingredient}>size</Text>
+    <Text style={styles.ingredient}>{item.name}</Text>
+    <Text style={styles.ingredient}>{item.size}</Text>
   </View>
-)
+  )
+}
 
 const styles = StyleSheet.create({
   contentIngredient: {

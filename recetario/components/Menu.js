@@ -1,48 +1,60 @@
 import React from 'react'
-import { View, Button, StyleSheet, ImageBackground, Text, FlatList} from 'react-native'
+import { View, StyleSheet, ImageBackground, Text, FlatList} from 'react-native'
+import { StatusBar } from 'react-native'
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import Ingredient from './Ingredient'
-import data from '../data/recipe.json'
-const img = { uri: "https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2016/05/costradepizza.jpg" };
 
-const Menu = ({ navigation }) => {
-  const renderIngredient = ({ ingredient }) => (
-    <Ingredient ingredient = { ingredient } />
-  )
+const Menu = () => {
+
+  const navigation = useNavigation();
+  const route = useRoute();
+
+  const img = { uri: route.params.photo };
+  const renderIngredient = ({ item }) => {
+
+    return(
+      <Ingredient item = { item } />
+    )
+  }
+
+
   return (
     <View style={styles.menu} >
-
+      <StatusBar
+        backgroundColor = 'rgba(0,0,0,0)'
+        barStyle = "light-content"
+        translucent = {true}
+      />
       <ImageBackground source={img} style={styles.image} imageStyle={styles.image_imageStyle}>
 
         <View style={styles.separed}>
           <View style={styles.viewIcons}>
               <FontAwesome5 name={'times'} onPress={() => navigation.navigate('Home')} style={styles.icons}/>
               <View style={styles.viewIcons}>
-                <FontAwesome5 name={'heart'} style={styles.iconMargin}/>
-                <FontAwesome5 name={'upload'} style={styles.icons}/>
+                <FontAwesome5 name={'upload'} style={styles.iconMargin}/>
+                <FontAwesome5 name={'heart'} style={styles.icons}/>
               </View>
           </View>
 
           <View style={styles.infoText}>
             <Text style={styles.category}>TREDDING</Text>
-            <Text style={styles.foodName}>Pizza de peperoni</Text>
+            <Text style={styles.foodName}>{route.params.name}</Text>
           </View>
-
         </View>
 
       </ImageBackground>
 
       <View>
-        <Text style={styles.textIngredients}>Ingredients{"\n"}for 3 servings</Text>
+        <Text style={styles.textIngredients}>Ingredients{"\n"}for {route.params.servings} servings</Text>
       </View>
 
       <FlatList
-        data = { data.recipes }
+        data = {route.params.ingredients}
         renderItem = { renderIngredient }
-        keyExtractor = { (ingredient) => ingredient.id }
+         keyExtractor = { (item) => item.name.toString() }
       />
-
     </View>
   )
 }
@@ -66,9 +78,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     height: "85%",
     marginHorizontal: 15,
+    marginTop: 50
   },
   infoText:{
-    marginBottom: 15
+    marginBottom: 30
   },
   viewIcons:{
     flexDirection: "row",
