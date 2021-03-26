@@ -1,11 +1,10 @@
 import React from 'react'
 import {
-  Button,
   Text,
-  View
+  View,
+  StatusBar
 } from 'react-native'
-import { appStyles } from './styles'
-import {StatusBar} from 'react-native'
+import { appStyles } from '../styles/appStyles'
 
 import Search from './Search'
 import HorizontList from './HorizontList'

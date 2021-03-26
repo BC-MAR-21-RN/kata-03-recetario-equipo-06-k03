@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, TextInput } from 'react-native'
-import { searchStyles } from './styles'
+import { searchStyles } from '../styles/searchStyles'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 const Search = () => {

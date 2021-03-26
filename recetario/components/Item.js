@@ -1,14 +1,12 @@
 import React from 'react'
-import { Text, Image, TouchableOpacity} from 'react-native'
-import { useNavigation } from '@react-navigation/native';
+import { Text, Image, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
-
-import { itemStyles } from './styles'
+import { itemStyles } from '../styles/itemStyles'
 
 const Item = ({ item }) => {
-
-  const navigation = useNavigation();
-  return(
+  const navigation = useNavigation()
+  return (
     <TouchableOpacity onPress={() => navigation.navigate('Menu', item)} style={itemStyles.item}>
         <Image
           style={itemStyles.img}
