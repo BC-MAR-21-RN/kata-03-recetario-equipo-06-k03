@@ -1,37 +1,29 @@
-import React from 'react';
-import {
-  ScrollView,
-  Text,
-  View,
-  StyleSheet
-} from 'react-native';
+import React from 'react'
+import 'react-native-gesture-handler'
+import { createStackNavigator } from '@react-navigation/stack'
+import { NavigationContainer } from '@react-navigation/native'
+import Home from './components/Home'
+import Menu from './components/Menu'
 
-import Search from './components/Search';
-import HorizontList from './components/HorizontList';
-import Item from './components/Item';
+const Stack = createStackNavigator()
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Search/>
-      <HorizontList/>
-      <Text style={styles.text}>RECENT</Text>
-      {/* <Item/> */}
-    </View>
-  );
-};
+  <>
+  <NavigationContainer>
 
-const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#282828',
-    paddingHorizontal: "2.5%"
-  },
-  text:{
-    color: "#d31c71",
-    fontSize: 24
-  }
-});
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+    <Stack.Screen name="Home" component={Home} />
+    <Stack.Screen name="Menu" component={Menu} />
 
-export default App;
+    </Stack.Navigator>
+  </NavigationContainer>
+  </>
+  )
+}
+
+export default App

@@ -1,35 +1,19 @@
 import React from 'react'
-import {
-  ScrollView,
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  requireNativeComponent
-} from 'react-native'
+import { Text, Image, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
-const Item = ({item}) => (
-    <View style={styles.item}>
-      <Image
-        style={styles.img}
-        source={{uri: item.photo}}
-      /> 
-      <Text style={styles.text}>{item.name}</Text>
-    </View>
-)
+import { itemStyles } from '../styles/itemStyles'
 
-const styles = StyleSheet.create({
-    item: {
-        height:225,
-        width: 250
-    },
-    img:{
-        height: 150,
-        width: 150
-    },
-    text: {
-        color: "white"
-    }
-})
-
+const Item = ({ item }) => {
+  const navigation = useNavigation()
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate('Menu', item)} style={itemStyles.item}>
+        <Image
+          style={itemStyles.img}
+          source={{ uri: item.photo }}
+          />
+        <Text style={itemStyles.text}>{item.name}</Text>
+    </TouchableOpacity>
+  )
+}
 export default Item
