@@ -2,16 +2,19 @@ import React from 'react'
 import {
   Text,
   View,
-  StatusBar
+  StatusBar,
+  ScrollView
 } from 'react-native'
 import { appStyles } from '../styles/appStyles'
+import data  from '../data/recipe.json'
 
 import Search from './Search'
 import HorizontList from './HorizontList'
+import Item from './Item'
 
 const Home = () => {
   return (
-    <View style={appStyles.container}>
+    <ScrollView style={appStyles.container}>
       <StatusBar
       backgroundColor = '#282828'
       hidden = {false}
@@ -22,7 +25,12 @@ const Home = () => {
       <HorizontList />
       <Text style={appStyles.text}>RECENT</Text>
 
-    </View>
+      {data.recipes.map( (item, i) => {
+          if (i === data.recipes.length - 1) {
+            item.recent = "RECENT"
+            return <Item key={item.id} item={item}/>} 
+      })}
+    </ScrollView>
   )
 }
 

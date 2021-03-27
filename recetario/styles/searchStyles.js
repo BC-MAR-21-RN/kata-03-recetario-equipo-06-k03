@@ -12,7 +12,8 @@ const searchStyles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
-    fontSize: 17
+    fontSize: 17,
+    color: "#f1f1f1"
   },
   glass: {
     flexDirection: 'row',

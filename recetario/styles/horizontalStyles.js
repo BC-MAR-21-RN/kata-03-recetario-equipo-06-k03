@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 const horizontalStyles = StyleSheet.create({
   horizontal: {
-    height: 250,
+    height: 180,
     width: '100%',
     flexDirection: 'row'
   },

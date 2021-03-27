@@ -16,5 +16,4 @@ const Item = ({ item }) => {
     </TouchableOpacity>
   )
 }
-
 export default Item

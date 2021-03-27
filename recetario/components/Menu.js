@@ -1,5 +1,6 @@
-import React from 'react'
-import { View, ImageBackground, Text, FlatList, StatusBar } from 'react-native'
+import React, {useState} from 'react'
+import { View, ImageBackground, Text, FlatList, StatusBar} from 'react-native'
+
 
 import { useNavigation, useRoute } from '@react-navigation/native'
 
@@ -10,8 +11,14 @@ import { menuStyles } from '../styles/menuStyles'
 const Menu = () => {
   const navigation = useNavigation()
   const route = useRoute()
-
   const img = { uri: route.params.photo }
+
+  const [IlikeIt, setLike] = useState(false);
+
+ const iLike = () => {
+    setLike(!IlikeIt)
+  }
+
   const renderIngredient = ({ item }) => {
     return (
       <Ingredient item = { item } />
@@ -21,21 +28,18 @@ const Menu = () => {
   return (
     <View style={menuStyles.menu} >
       <StatusBar
-        backgroundColor = 'rgba(0,0,0,0)'
-        barStyle = "light-content"
-        translucent = {true}
-      />
+        backgroundColor = 'rgba(0,0,0,0)' barStyle = "light-content" translucent = {true}/>
       <ImageBackground source={img} style={menuStyles.image} imageStyle={menuStyles.image_imageStyle}>
         <View style={menuStyles.separed}>
           <View style={menuStyles.viewIcons}>
               <FontAwesome5 name={'times'} onPress={() => navigation.navigate('Home')} style={menuStyles.icons}/>
               <View style={menuStyles.viewIcons}>
                 <FontAwesome5 name={'upload'} style={menuStyles.iconMargin}/>
-                <FontAwesome5 name={'heart'} style={menuStyles.icons}/>
+                <FontAwesome5 name={'heart'} onPress={iLike} style={IlikeIt ? menuStyles.heartLike : menuStyles.heartNoLike } solid/>
               </View>
           </View>
           <View style={menuStyles.infoText}>
-            <Text style={menuStyles.category}>TREDDING</Text>
+            <Text style={menuStyles.category}>{(route.params.recent) ? "RECENT" : "TREDDING"}</Text>
             <Text style={menuStyles.foodName}>{route.params.name}</Text>
           </View>
         </View>
@@ -43,11 +47,7 @@ const Menu = () => {
       <View>
         <Text style={menuStyles.textIngredients}>Ingredients{'\n'}for {route.params.servings} servings</Text>
       </View>
-      <FlatList
-        data = {route.params.ingredients}
-        renderItem = { renderIngredient }
-         keyExtractor = { (item) => item.name.toString() }
-      />
+      <FlatList data = {route.params.ingredients} renderItem = { renderIngredient } keyExtractor = { (item) => item.name.toString() }/>
     </View>
   )
 }

@@ -10,7 +10,7 @@ const menuStyles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
     width: '100%',
-    height: 200
+    height: 250
   },
   image_imageStyle: {
     opacity: 0.3
@@ -20,7 +20,7 @@ const menuStyles = StyleSheet.create({
     justifyContent: 'space-between',
     height: '85%',
     marginHorizontal: 15,
-    marginTop: 50
+    paddingTop: 40
   },
   infoText: {
     marginBottom: 30
@@ -30,7 +30,7 @@ const menuStyles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   icons: {
-    color: '#efedec',
+    color:'#efedec',
     fontSize: 18
   },
   iconMargin: {
@@ -39,20 +39,28 @@ const menuStyles = StyleSheet.create({
     fontSize: 18
   },
   category: {
-    fontSize: 10,
+    fontSize: 12,
     color: '#efedec',
     fontWeight: 'bold'
   },
   foodName: {
-    fontSize: 15,
+    fontSize: 16,
     color: '#efedec',
     fontWeight: '100'
   },
   textIngredients: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#efedec',
     marginHorizontal: 15,
     marginVertical: 15
+  },
+  heartLike:{
+    color: "red",
+    fontSize: 18
+  },
+  heartNoLike:{
+    color: "#efedec",
+    fontSize: 18
   }
 })
 
