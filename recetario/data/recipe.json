@@ -5,6 +5,7 @@
       "name":"Napolitan Pizza",
       "photo":"https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2016/05/costradepizza.jpg",
       "servings":2,
+      "like": true,
       "ingredients":[
         {
           "name":"Peperoni",
@@ -29,6 +30,7 @@
       "name":"Peperoni Pizza Pockets",
       "photo":"https://recetinas.com/wp-content/uploads/2017/09/pizza-con-champinones-y-pepperoni.jpg",
       "servings":3,
+      "like": false,
       "ingredients":[
         {
           "name":"Puff Pastry",
@@ -57,6 +59,7 @@
       "name":"Meatball Sub Bake",
       "photo":"https://imagesvc.meredithcorp.io/v3/jumpstartpure/image?url=https://static.onecms.io/wp-content/uploads/sites/19/2012/11/06/image.jpg&w=1280&h=720&q=90&c=cc",
       "servings":3,
+      "like": false,
       "ingredients":[
         {
           "name":"Refrigerated biscuit",
@@ -81,6 +84,7 @@
       "name":"Chocolate Chip",
       "photo": "https://handletheheat.com/wp-content/uploads/2013/10/Soft-Chocolate-Chip-Cookies-SQUARE.jpg",
       "servings":3,
+      "like": true,
       "ingredients":[
         {
           "name":"Butter",
